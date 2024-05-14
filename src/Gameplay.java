@@ -21,17 +21,39 @@ public class Gameplay {
         isOver = over;
     }
 
+    public static boolean isGuessNumeric(String guess) {
+        try {
+            int checkGuess = Integer.parseInt(guess);
+        }
+        catch (NumberFormatException nfe) {
+            return false;
+        }
+
+        return true;
+    }
     public static void main(String[] args) {
         Player playerOne = new Player("", 8);
+
 
         while (playerOne.getLives() > 0) {
             Scanner userGuess = new Scanner(System.in);
             System.out.println("Please make a guess: ");
 
             String guess = userGuess.nextLine();
-            System.out.println("Guess is " + guess);
+            while (guess.length() != 1) {
+                System.out.println("Please only input one character at a time: ");
+                guess = userGuess.nextLine();
+            }
+            char guessedLetter = guess.charAt(0);
 
-            playerOne.setLives(playerOne.getLives() - 1);
+            if (isGuessNumeric(guess) || !Character.isLetter(guessedLetter)) {
+                System.out.println("Guess must be a letter!");
+            } else {
+                playerOne.setLives(playerOne.getLives() - 1);
+                System.out.println("Guess is " + guess);
+                System.out.println(playerOne.getLives());
+            }
+
         }
 
         System.out.println("Game Over");
