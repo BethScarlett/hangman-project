@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Gameplay {
@@ -35,8 +36,17 @@ public class Gameplay {
         //Create instance of player object
         Player playerOne = new Player("", 8);
 
+        //Initialise WordPicker
+        WordPicker wordPicker = new WordPicker();
+
+        //Set word to guess
+        wordPicker.chooseWord();
+
         //Use while loop to run game while player has lives left
         while (playerOne.getLives() > 0) {
+            //System.out.println(wordPicker.getChosenWord());
+            System.out.println(Arrays.toString(wordPicker.getHiddenWord()));
+
             //Initialise scanner to grab user input
             Scanner userGuess = new Scanner(System.in);
             System.out.println("Please make a guess: ");
