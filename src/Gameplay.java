@@ -1,5 +1,6 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import static CheckGuess.CheckGuess.compareGuess;
 
 public class Gameplay {
 
@@ -71,12 +72,20 @@ public class Gameplay {
             } else if (playerOne.getGuessedLetters().contains(guess)) {
                 System.out.println("You have already guessed this letter!");
             } else {
-                //Act on input if valid
-                playerOne.setLives(playerOne.getLives() - 1);
+                //Check if guess is correct
+                if(compareGuess(guessedLetter, wordPicker.getChosenWord(), wordPicker.getHiddenWord())) {
+                    //Inform user of correct guess
+                    System.out.println("Correct guess");
+                } else {
+                    //Inform user of incorrect guess and deduct one life
+                    System.out.println("Incorrect guess");
+                    playerOne.setLives(playerOne.getLives() - 1);
+                };
+                //Output details of currently guessed letter, previously guessed letters and lived left
                 playerOne.setGuessedLetters(playerOne.getGuessedLetters() + guessedLetter + ", ");
                 System.out.println("Guess is " + guess);
                 System.out.println("Guessed so far: " + playerOne.getGuessedLetters());
-                System.out.println(playerOne.getLives());
+                System.out.println("Lives remaining: " + playerOne.getLives());
             }
 
         }
