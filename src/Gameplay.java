@@ -16,14 +16,19 @@ public class Gameplay {
         return true;
     }
     public static void main(String[] args) {
+        //Welcome message for player
+        System.out.println("Welcome to hangman!");
+
         //Create instance of player object
-        Player playerOne = new Player("", 8);
+        Player playerOne = new Player("", 1);
 
         //Initialise WordPicker
         WordPicker wordPicker = new WordPicker();
 
         //Set word to guess
+        System.out.println("Choosing word to guess ...");
         wordPicker.chooseWord();
+        System.out.println("Word chosen. Good luck.");
 
         //Store chosen word for easier reference
         String chosenWord = wordPicker.getChosenWord();
@@ -48,9 +53,6 @@ public class Gameplay {
                 guess = userGuess.nextLine();
             }
 
-            //Convert guess to char for later check
-            char guessedLetter = guess.charAt(0);
-
             //Check if guess is valid, and if user has made the same guess before
             if (isGuessNumeric(guess) || !Character.isLetter(guess.charAt(0))) {
                 System.out.println("Guess must be a letter!");
@@ -58,22 +60,23 @@ public class Gameplay {
                 System.out.println("You have already guessed this letter!");
             } else {
                 //Check if guess is correct
-                if(compareGuess(guessedLetter, chosenWord, wordPicker.getHiddenWord())) {
+                System.out.println("You guessed " + guess);
+                if(compareGuess(guess.charAt(0), chosenWord, wordPicker.getHiddenWord())) {
                     //Inform user of correct guess
-                    System.out.println("Correct guess");
+                    System.out.println("This is a correct guess");
                 } else {
                     //Inform user of incorrect guess and deduct one life
-                    System.out.println("Incorrect guess");
+                    System.out.println("This is an incorrect guess. Bad luck.");
                     playerOne.setLives(playerOne.getLives() - 1);
                 };
                 //Output details of currently guessed letter, previously guessed letters and lived left
-                playerOne.setGuessedLetters(playerOne.getGuessedLetters() + guessedLetter + ", ");
-                System.out.println("Guess is " + guess);
-                System.out.println("Guessed so far: " + playerOne.getGuessedLetters());
+                playerOne.setGuessedLetters(playerOne.getGuessedLetters() + guess.charAt(0) + ", ");
+                System.out.println("So far you have guessed: " + playerOne.getGuessedLetters());
                 System.out.println("Lives remaining: " + playerOne.getLives());
             }
 
         }
-        result(String.join("", wordPicker.getHiddenWord()).equals(wordPicker.getChosenWord()));
+        //Display results message based on if player won or lost
+        result(String.join("", wordPicker.getHiddenWord()).equals(chosenWord), chosenWord);
     }
 }
