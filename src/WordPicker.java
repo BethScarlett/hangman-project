@@ -5,7 +5,7 @@ public class WordPicker {
     private String[] words = {"zipper", "nosy", "remember", "rambunctious", "descriptive", "special", "rainy", "bait",
             "painful", "insidious", "spotless", "seed", "rule", "oval", "sound", "tan", "interrupt", "used", "experience",
             "factory", "scary", "vulgar", "scoundrel", "mixed", "beef", "jam", "exciting", "rely", "account", "organic",
-            "overwrought", "fax", "steel", "vacuous", "tedious", "giants", "old-fashioned", "little", "reason", "brain",
+            "overwrought", "fax", "steel", "vacuous", "tedious", "giants", "vintage", "little", "reason", "brain",
             "island", "faulty", "enjoy", "trip", "tame", "apparatus", "obnoxious", "babies", "mind", "arrive"};
 
     private String chosenWord;
@@ -28,7 +28,7 @@ public class WordPicker {
     }
 
     public void chooseWord() {
-        int randNum = ThreadLocalRandom.current().nextInt(0, 49);
+        int randNum = ThreadLocalRandom.current().nextInt(0, words.length);
         setChosenWord(words[randNum]);
         hideWord();
     }
