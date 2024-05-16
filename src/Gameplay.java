@@ -1,26 +1,9 @@
 import java.util.Arrays;
 import java.util.Scanner;
+import static CheckGuess.CheckGuess.compareGuess;
+import static Game.Result.*;
 
 public class Gameplay {
-
-    private String result;
-    private static Boolean isOver;
-
-    public String getResult() {
-        return result;
-    }
-
-    public void setResult(String result) {
-        this.result = result;
-    }
-
-    public static Boolean getOver() {
-        return isOver;
-    }
-
-    public void setOver(Boolean over) {
-        isOver = over;
-    }
 
     public static boolean isGuessNumeric(String guess) {
         try {
@@ -42,9 +25,12 @@ public class Gameplay {
         //Set word to guess
         wordPicker.chooseWord();
 
+        //Store chosen word for easier reference
+        String chosenWord = wordPicker.getChosenWord();
+
         //Use while loop to run game while player has lives left
-        while (playerOne.getLives() > 0) {
-            System.out.println(wordPicker.getChosenWord());
+        while (playerOne.getLives() > 0 && !String.join("", wordPicker.getHiddenWord()).equals(chosenWord)) {
+            //System.out.println(wordPicker.getChosenWord());
             System.out.println(Arrays.toString(wordPicker.getHiddenWord()));
 
             //Initialise scanner to grab user input
@@ -66,21 +52,28 @@ public class Gameplay {
             char guessedLetter = guess.charAt(0);
 
             //Check if guess is valid, and if user has made the same guess before
-            if (isGuessNumeric(guess) || !Character.isLetter(guessedLetter)) {
+            if (isGuessNumeric(guess) || !Character.isLetter(guess.charAt(0))) {
                 System.out.println("Guess must be a letter!");
             } else if (playerOne.getGuessedLetters().contains(guess)) {
                 System.out.println("You have already guessed this letter!");
             } else {
-                //Act on input if valid
-                playerOne.setLives(playerOne.getLives() - 1);
+                //Check if guess is correct
+                if(compareGuess(guessedLetter, chosenWord, wordPicker.getHiddenWord())) {
+                    //Inform user of correct guess
+                    System.out.println("Correct guess");
+                } else {
+                    //Inform user of incorrect guess and deduct one life
+                    System.out.println("Incorrect guess");
+                    playerOne.setLives(playerOne.getLives() - 1);
+                };
+                //Output details of currently guessed letter, previously guessed letters and lived left
                 playerOne.setGuessedLetters(playerOne.getGuessedLetters() + guessedLetter + ", ");
                 System.out.println("Guess is " + guess);
                 System.out.println("Guessed so far: " + playerOne.getGuessedLetters());
-                System.out.println(playerOne.getLives());
+                System.out.println("Lives remaining: " + playerOne.getLives());
             }
 
         }
-        //End game if lives run out
-        System.out.println("Game Over");
+        result(String.join("", wordPicker.getHiddenWord()).equals(wordPicker.getChosenWord()));
     }
 }
