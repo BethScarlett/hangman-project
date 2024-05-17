@@ -5,23 +5,32 @@ import java.util.Scanner;
 public class StartGame {
 
     private static int choice;
+    private static boolean isRestart;
+    private static final Scanner scanner = new Scanner(System.in);
 
     public static boolean startGame() {
-        Scanner scanner = new Scanner(System.in);
 
-        //Welcome message for player
-        System.out.println("Welcome to hangman! Would you like to play? Enter 1 for yes and any other number for no: ");
+        if(!isRestart) {
+            //Welcome message for player
+            System.out.println("Welcome to hangman! Would you like to play? Enter 1 for yes and anything else for no: ");
+        } else System.out.println("Would you like to play again? Enter 1 for yes and anything else for no: ");
 
-        if (scanner.hasNextInt()) {
+        try {
             choice = scanner.nextInt();
-        }
-
-        if (choice == 1) {
-            System.out.println("Ok. Let's play.");
-            return true;
-        }
-        else {
+            if (choice == 1) {
+                System.out.println("Ok. Let's play.");
+                isRestart = true;
+                return true;
+            }
+            else {
+//                System.out.println("Ok no worries. Goodbye.");
+                return false;
+            }
+        } catch (Exception e) {
+//            System.out.println("Ok no worries. Goodbye.");
             return false;
         }
+
     }
+
 }
