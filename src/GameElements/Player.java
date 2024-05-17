@@ -1,12 +1,18 @@
+package GameElements;
+
 public class Player {
+
+    //Initialise variables for the player
     private String guessedLetters;
     private int lives;
 
+    //Constructor for player class
     public Player (String guessedLetters, int lives) {
         this.guessedLetters = guessedLetters;
         this.lives = lives;
     }
 
+    //Getters and Setters for above
     public String getGuessedLetters() {
         return guessedLetters;
     }
