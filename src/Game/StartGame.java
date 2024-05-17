@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class StartGame {
 
-    private static int choice;
     private static boolean isRestart;
     private static final Scanner scanner = new Scanner(System.in);
 
@@ -16,7 +15,7 @@ public class StartGame {
         } else System.out.println("Would you like to play again? Enter 1 for yes and anything else for no: ");
 
         try {
-            choice = scanner.nextInt();
+            int choice = scanner.nextInt();
             if (choice == 1) {
                 System.out.println("Ok. Let's play.");
                 isRestart = true;

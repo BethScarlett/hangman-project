@@ -35,7 +35,7 @@ public class Gameplay {
 
             //Use while loop to run game while player has lives left
             while (playerOne.getLives() > 0 && !String.join("", wordPicker.getHiddenWord()).equals(chosenWord)) {
-                System.out.println(wordPicker.getChosenWord());
+                //System.out.println(wordPicker.getChosenWord());
                 System.out.println(Arrays.toString(wordPicker.getHiddenWord()));
 
                 //Initialise scanner to grab user input
@@ -79,6 +79,7 @@ public class Gameplay {
             //Display results message based on if player won or lost
             result(String.join("", wordPicker.getHiddenWord()).equals(chosenWord), chosenWord);
         }
+        //Display goodbye message
         System.out.println("Ok no worries. Goodbye.");
     }
 }
