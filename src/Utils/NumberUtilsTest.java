@@ -20,20 +20,6 @@ class NumberUtilsTest {
     }
 
     @Test
-    @DisplayName("Throw error if invalid range")
-    void generateRandNum_invalidInputs_fails() {
-        int min = 5;
-        int max = 1;
-        boolean noException = true;
-        try {
-            int result = ThreadLocalRandom.current().nextInt(min, max);
-        } catch (Exception e) {
-            noException = false;
-        }
-        assertFalse(noException);
-    }
-
-    @Test
     @DisplayName("Handle greater bound exception gracefully")
     void generateRandNum_invalidInputs_switchInputs() {
         int min = 5;

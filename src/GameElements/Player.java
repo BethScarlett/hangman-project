@@ -1,3 +1,5 @@
+package GameElements;
+
 public class Player {
 
     //Initialise variables for the player

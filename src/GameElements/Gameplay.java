@@ -1,9 +1,11 @@
+package GameElements;
+
 import java.util.Arrays;
 import java.util.Scanner;
 import static CheckGuess.CheckGuess.compareGuess;
 import static CheckGuess.CheckGuess.isGuessNumeric;
-import static Game.Result.*;
-import static Game.StartGame.startGame;
+import static GameStates.Result.*;
+import static GameStates.StartGame.startGame;
 
 public class Gameplay {
 
@@ -13,7 +15,7 @@ public class Gameplay {
             //Create instance of player class
             Player playerOne = new Player("", 8);
 
-            //Initialise WordPicker
+            //Initialise GameElements.WordPicker
             WordPicker wordPicker = new WordPicker();
 
             //Set word to guess
@@ -26,7 +28,7 @@ public class Gameplay {
 
             //Run game while player has lives left or word hasn't been guessed
             while (playerOne.getLives() > 0 && !String.join("", wordPicker.getHiddenWord()).equals(chosenWord)) {
-                System.out.println(wordPicker.getChosenWord());
+                //System.out.println(wordPicker.getChosenWord());
 
                 //Display information to player
                 System.out.println(Arrays.toString(wordPicker.getHiddenWord()));

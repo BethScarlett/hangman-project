@@ -1,10 +1,10 @@
-package Game;
+package GameStates;
 
 public class Result {
 
     public static void result(Boolean result, String word) {
         //Display game over message
-        System.out.println("Game Over.");
+        System.out.println("GameStates Over.");
 
         //Display win/loss result
         if(result) System.out.println("Congratulations, you won!");

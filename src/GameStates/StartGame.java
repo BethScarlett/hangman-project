@@ -1,4 +1,4 @@
-package Game;
+package GameStates;
 
 import java.util.Scanner;
 
@@ -14,18 +14,18 @@ public class StartGame {
         if(!isRestart) {
             //Welcome message
             System.out.println("Welcome to hangman! Would you like to play? Enter 1 for yes and anything else for no: ");
+            isRestart = true;
         } else {
             //Restart message
             System.out.println("Would you like to play again? Enter 1 for yes and anything else for no: ");
         }
-        
+
         //Attempt to grab input
         try {
             int choice = scanner.nextInt();
             if (choice == 1) {
                 //Return true to start game
                 System.out.println("Ok. Let's play.");
-                isRestart = true;
                 return true;
             }
             else {

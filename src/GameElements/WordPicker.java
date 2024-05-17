@@ -1,5 +1,6 @@
+package GameElements;
+
 import java.util.Arrays;
-import java.util.concurrent.ThreadLocalRandom;
 
 import static Utils.NumberUtils.generateRandNum;
 
