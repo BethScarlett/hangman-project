@@ -3,7 +3,7 @@ package GameElements;
 import java.util.Arrays;
 import java.util.Scanner;
 import static CheckGuess.CheckGuess.compareGuess;
-import static CheckGuess.CheckGuess.isGuessNumeric;
+import static CheckGuess.ValidateGuess.isGuessNumeric;
 import static GameElements.HangmanASCII.drawHangman;
 import static GameStates.Result.*;
 import static GameStates.StartGame.startGame;
