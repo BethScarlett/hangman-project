@@ -4,6 +4,8 @@ public class HangmanASCII {
 
     public static void drawHangman(int livesLost) {
         System.out.println("Hangman status: ");
+
+        //Draw hangman based on number of lives lost
         switch (livesLost) {
             case 1:
                 System.out.println("___________");
@@ -71,6 +73,7 @@ public class HangmanASCII {
                 System.out.println("___|_______");
                 break;
             default:
+                System.out.println("No noose yet.");
                 break;
         }
     }
