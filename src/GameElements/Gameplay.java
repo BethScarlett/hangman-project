@@ -1,9 +1,11 @@
 package GameElements;
 
 import java.util.Arrays;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 import static CheckGuess.CheckGuess.compareGuess;
 import static CheckGuess.ValidateGuess.isGuessNumeric;
+import static GameElements.Difficulty.setDifficulty;
 import static GameElements.HangmanASCII.drawHangman;
 import static GameStates.Result.*;
 import static GameStates.StartGame.startGame;
@@ -14,7 +16,10 @@ public class Gameplay {
         //While player wants to start game
         while (startGame()) {
             //Create instance of player class
-            Player playerOne = new Player("", 8);
+            Player playerOne = new Player("");
+
+            //Set lives based on selected difficulty
+            playerOne.setLives(setDifficulty());
 
             //Initialise GameElements.WordPicker
             WordPicker wordPicker = new WordPicker();

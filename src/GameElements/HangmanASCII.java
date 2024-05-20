@@ -16,7 +16,7 @@ public class HangmanASCII {
                 System.out.println("   |      ");
                 System.out.println("   |      ");
                 System.out.println("   |      ");
-                System.out.println("___________");
+                System.out.println("___|_______");
                 break;
             case 3:
                 System.out.println("   _____   ");

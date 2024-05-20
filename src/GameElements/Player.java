@@ -6,7 +6,11 @@ public class Player {
     private String guessedLetters;
     private int lives;
 
-    //Constructor for player class
+    //Constructors for player class
+    public Player (String guessedLetters) {
+        this.guessedLetters = guessedLetters;
+    }
+
     public Player (String guessedLetters, int lives) {
         this.guessedLetters = guessedLetters;
         this.lives = lives;
