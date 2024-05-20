@@ -76,7 +76,7 @@ public class Gameplay {
                     playerOne.setGuessedLetters(playerOne.getGuessedLetters() + guess.charAt(0) + ", ");
 
                     //Draw out character
-                    drawHangman(startingLives - playerOne.getLives());
+                    drawHangman(startingLives - playerOne.getLives(), startingLives);
                 }
             }
             //Display results message based on if player won or lost
