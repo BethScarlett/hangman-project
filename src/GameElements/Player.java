@@ -6,14 +6,9 @@ public class Player {
     private String guessedLetters;
     private int lives;
 
-    //Constructors for player class
+    //Constructor for player class
     public Player (String guessedLetters) {
         this.guessedLetters = guessedLetters;
-    }
-
-    public Player (String guessedLetters, int lives) {
-        this.guessedLetters = guessedLetters;
-        this.lives = lives;
     }
 
     //Getters and Setters for above

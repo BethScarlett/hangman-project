@@ -1,7 +1,6 @@
 package GameElements;
 
 import java.util.Arrays;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 import static CheckGuess.CheckGuess.compareGuess;
 import static CheckGuess.ValidateGuess.isGuessNumeric;
