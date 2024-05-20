@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Scanner;
 import static CheckGuess.CheckGuess.compareGuess;
 import static CheckGuess.CheckGuess.isGuessNumeric;
+import static GameElements.HangmanASCII.drawHangman;
 import static GameStates.Result.*;
 import static GameStates.StartGame.startGame;
 
@@ -23,8 +24,9 @@ public class Gameplay {
             wordPicker.chooseWord();
             System.out.println("Word chosen. Good luck.");
 
-            //Store chosen word for easier code reference
+            //Store chosen word and lives for easier code reference
             String chosenWord = wordPicker.getChosenWord();
+            int startingLives = playerOne.getLives();
 
             //Run game while player has lives left or word hasn't been guessed
             while (playerOne.getLives() > 0 && !String.join("", wordPicker.getHiddenWord()).equals(chosenWord)) {
@@ -67,6 +69,9 @@ public class Gameplay {
                     }
                     //Append guessed letters with latest guess
                     playerOne.setGuessedLetters(playerOne.getGuessedLetters() + guess.charAt(0) + ", ");
+
+                    //Draw out character
+                    drawHangman(startingLives - playerOne.getLives());
                 }
             }
             //Display results message based on if player won or lost

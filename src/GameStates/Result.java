@@ -4,7 +4,7 @@ public class Result {
 
     public static void result(Boolean result, String word) {
         //Display game over message
-        System.out.println("GameStates Over.");
+        System.out.println("Game Over.");
 
         //Display win/loss result
         if(result) System.out.println("Congratulations, you won!");
