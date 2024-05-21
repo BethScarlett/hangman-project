@@ -2,7 +2,7 @@ package GameElements;
 
 import java.util.Arrays;
 
-import static Utils.NumberUtils.generateRandNum;
+import static Utils.GenerateRandomNumber.generateRandNum;
 
 public class WordPicker {
 
@@ -11,7 +11,8 @@ public class WordPicker {
             "painful", "insidious", "spotless", "seed", "rule", "oval", "sound", "tan", "interrupt", "used", "experience",
             "factory", "scary", "vulgar", "scoundrel", "mixed", "beef", "jam", "exciting", "rely", "account", "organic",
             "overwrought", "fax", "steel", "vacuous", "tedious", "giants", "vintage", "little", "reason", "brain",
-            "island", "faulty", "enjoy", "trip", "tame", "apparatus", "obnoxious", "babies", "mind", "arrive"};
+            "island", "faulty", "enjoy", "trip", "tame", "apparatus", "obnoxious", "babies", "mind", "arrive", "vessel",
+            "fridge", "home", "tidal", "meeting", "trombone", "east", "miss", "winning", "drip"};
 
     //Initialise variables to store chosen word & hidden version of chosen word
     private String chosenWord;
@@ -37,7 +38,7 @@ public class WordPicker {
     //Choose random word from array
     public void chooseWord() {
         //Generate a random number within correct range
-        int randNum = generateRandNum(0, words.length);
+        int randNum = generateRandNum(0, words.length - 1);
 
         //Set chosen word using random number as index
         setChosenWord(words[randNum]);

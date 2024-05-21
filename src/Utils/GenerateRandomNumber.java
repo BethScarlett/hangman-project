@@ -2,7 +2,7 @@ package Utils;
 
 import java.util.concurrent.ThreadLocalRandom;
 
-public class NumberUtils {
+public class GenerateRandomNumber {
 
     public static int generateRandNum (int min, int max) {
         if (min > max) return ThreadLocalRandom.current().nextInt(max, min);

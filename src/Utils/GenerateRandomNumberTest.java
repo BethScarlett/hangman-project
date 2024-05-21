@@ -7,7 +7,7 @@ import java.util.concurrent.ThreadLocalRandom;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NumberUtilsTest {
+class GenerateRandomNumberTest {
 
     @Test
     @DisplayName("Random number is in range")

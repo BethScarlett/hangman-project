@@ -2,11 +2,11 @@ package GameElements;
 
 public class HangmanASCII {
 
-    public static void drawHangman(int livesLost, int playerLives) {
+    public static void drawHangman(int livesLost, int startingLives) {
         System.out.println("Hangman status: ");
 
         //Draw hangman based on number of lives lost
-        if (playerLives == 12) {
+        if (startingLives == 12) {
             switch (livesLost) {
                 case 1:
                     System.out.println("_____");
@@ -104,7 +104,7 @@ public class HangmanASCII {
                     break;
             }
         }
-        else if (playerLives == 8) {
+        else if (startingLives == 8) {
             switch (livesLost) {
                 case 1:
                     System.out.println("___________");
